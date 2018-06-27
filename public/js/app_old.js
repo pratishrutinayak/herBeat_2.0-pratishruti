@@ -160,8 +160,8 @@ angular.module("app", ['chart.js','ngRoute'])
     $scope.pagedRecords = [];
     $scope.currentPage = 0;
     //paination end
-	$scope.goalResp = [];
-	$scope.goalstDate = "";
+ $scope.goalResp = [];
+ $scope.goalstDate = "";
     $scope.goalendDate = "";
     $('#goalstartDate').datepicker({
         format: "mm-dd-yyyy",
@@ -181,14 +181,12 @@ angular.module("app", ['chart.js','ngRoute'])
     };
 	
 	// Sort By
-	$scope.propertyName = [];
-	$scope.reverse = true;
+	 $scope.propertyName = [];
+	 $scope.reverse = true;
 	 
-	$scope.sortBy = function(propertyName) {
-	$scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
-	$scope.filteredItems = $filter('orderBy')($scope.goalResp, propertyName, $scope.reverse);
-	$scope.groupToPages();
-	$scope.propertyName = propertyName;
+	 $scope.sortBy = function(propertyName) {
+		$scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+		$scope.propertyName = propertyName;
     };
 
     // init the filtered items
@@ -388,8 +386,6 @@ angular.module("app", ['chart.js','ngRoute'])
 	 
 	 $scope.sortBy = function(propertyName) {
 		$scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
-		$scope.filteredItems = $filter('orderBy')($scope.activityResp, propertyName, $scope.reverse);
-		$scope.groupToPages();
 		$scope.propertyName = propertyName;
     };
 
@@ -594,14 +590,6 @@ angular.module("app", ['chart.js','ngRoute'])
 	 
 	 $scope.sortBy = function(propertyName) {
 		$scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
-		$scope.filteredItems = $filter('orderBy')($scope.emaResp, propertyName, $scope.reverse);
-		$scope.groupToPages();
-		$scope.propertyName = propertyName;
-    };
-	$scope.filterBy = function(prop) {
-		//$scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
-		$scope.filteredItems = $filter('filter')($scope.emaResp, walking);
-		$scope.groupToPages();
 		$scope.propertyName = propertyName;
     };
 
