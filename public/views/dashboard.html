@@ -175,51 +175,101 @@
             <div class="card mb-3">
                 <div class="card-header">
                     <i class="fa fa-table"></i> EMA Response</div>
-					<div class="btn-group">
-						<button type="button" class="btn btn-primary">Filter</button>
-						<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<span class="sr-only">Toggle Dropdown</span>
-						</button>
-							<div class="dropdown-menu">
-							<a class="dropdown-item" ng-model = "SearchText">Walking</a>
-							<a class="dropdown-item" href="#">Another action</a>
-							<a class="dropdown-item" href="#">Something else here</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Separated link</a>
-				        </div>
-				    </div>
+					
                     <div class="card-body">
                     <div class="table-responsive">
                     <table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
                       <thead>
                         <tr>
-                          <th class="sortable" style="width: 20%" data-ng-click="sortBy('serial_no')" >Serial No.
+                          <th class="sortable" style="width: 15%" data-ng-click="sortBy('serial_no')" >Serial No.
 						  <span class="caret-blank"data-ng-class="{'caret-down':sortDescend('serial_no'), 'caret-up':sortAscend('serial_no')}"></span>
 						  </th>
 						  
-						  <th class="sortable" style="width: 20%" data-ng-click="sortBy('user_selected_activity')" >Activity
-						  <span class="caret-blank"data-ng-class="{'caret-down':sortDescend('user_selected_activity'), 'caret-up':sortAscend('user_selected_activity')}"></span>
-						  </th>
 						  
-						  <th class="sortable" style="width: 20%" data-ng-click="sortBy('user_company')">Company
-						  <span class="caret-blank"data-ng-class="{'caret-down':sortDescend('user_company'), 'caret-up':sortAscend('user_company')}"></span>
-						  </th>
+						<th class="sortable" style="width: 15%" >
+						<a data-ng-click="sortBy('user_selected_activity')">Activity</a>
+						<i class = dropdown>
+						<a class="dropdown-toggle pull-right" data-toggle="dropdown">
+							<span class="caret-down dropdown"></span>
+						</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" data-ng-click="filterBy('Walking')">Walking</a>
+								<a class="dropdown-item" data-ng-click="filterBy('Standing')">Standing</a>
+								<a class="dropdown-item" data-ng-click="filterBy('Jogging')">Jogging</a>
+								<a class="dropdown-item" data-ng-click="filterBy('Sitting')">Sitting</a>
+					        </div>
+					    </i>
+					    </th>
+							
+					    <th class="sortable" style="width: 15%" >
+					    <a data-ng-click="sortBy('user_company')">Company</a>
+					   	<i class = dropdown>
+						<a class="dropdown-toggle pull-right " data-toggle="dropdown">
+						<span class="caret-down"></span>
+						</a>
+							<ul class="dropdown-menu">
+								<a class="dropdown-item" data-ng-click="filterBy('Alone')">Alone</a>
+								<a class="dropdown-item" data-ng-click="filterBy('With Friends')">With Friends</a>
+								<a class="dropdown-item" data-ng-click="filterBy('With Co-worker')">With Co-worker</a>
+								<a class="dropdown-item" data-ng-click="filterBy('With Spouse')">With Spouse</a>
+					        </ul>
+					    </i>
+					    </th>
 						  
-						  <th class="sortable" style="width: 20%" data-ng-click="sortBy('user_curr_location')">Curr. Location
-						  <span class="caret-blank"data-ng-class="{'caret-down':sortDescend('user_curr_location'), 'caret-up':sortAscend('user_curr_location')}"></span>
-						  </th>
+						<th class="sortable" style="width: 15%">
+						<a data-ng-click="sortBy('user_curr_location')">Curr. Loc</a>
+						<i class = dropdown>
+						<a class="dropdown-toggle pull-right" data-toggle="dropdown">
+						<span class="caret-down"></span>
+						</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" data-ng-click="filterBy('at park')">at park</a>
+								<a class="dropdown-item" data-ng-click="filterBy('In House')">In House</a>
+								<a class="dropdown-item" data-ng-click="filterBy('at restaurant')">at restaurant</a>
+								<a class="dropdown-item" data-ng-click="filterBy('None of the place')">None of the place</a>
+					        </div>
+					    </i>
+						</th>
 						  
-						  <th class="sortable" style="width: 20%" data-ng-click="sortBy('user_food_habit')">Food Habit
-						  <span class="caret-blank"data-ng-class="{'caret-down':sortDescend('user_food_habit'), 'caret-up':sortAscend('user_food_habit')}"></span>
-						  </th>
+	
+						<th class="sortable" style="width: 15%">
+						<a data-ng-click="sortBy('user_food_habit')">Food Habit</a>
+						<i class = dropdown>
+						<a class="dropdown-toggle pull-right" data-toggle="dropdown">
+						<span class="caret-down"></span>
+						</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" data-ng-click="filterBy('Didn' Eat anything last hour')">Didn' Eat anything last hour</a>
+								<a class="dropdown-item" data-ng-click="filterBy('Whole Grain')">Whole Grain</a>
+								<a class="dropdown-item" data-ng-click="filterBy('Vegetable')">Vegetable</a>
+								<a class="dropdown-item" data-ng-click="filterBy('Protein')">Protein</a>
+								<a class="dropdown-item" data-ng-click="filterBy('Salty Snack')">Salty Snack</a>
+								<a class="dropdown-item" data-ng-click="filterBy('Sweet and Sugary Drink')">Sweet and Sugary Drink</a>
+								<a class="dropdown-item" data-ng-click="filterBy('Fruit')">Fruit</a>
+								<a class="dropdown-item" data-ng-click="filterBy('None of the place')">None of the place</a>
+					        </div>
+					    </i>
+						</th>
 						  
-						  <th class="sortable" style="width: 20%" data-ng-click="sortBy('user_feelings')">Feelings
-						  <span class="caret-blank"data-ng-class="{'caret-down':sortDescend('user_feelings'), 'caret-up':sortAscend('user_feelings')}"></span>
-						  </th>
+					    <th class="sortable" style="width: 15%" >
+					    <a data-ng-click="sortBy('user_feelings')">Feelings</a>
+					   	<i class = dropdown>
+						<a class="dropdown-toggle pull-right" data-toggle="dropdown">
+						<span class="caret-down"></span>
+						</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" data-ng-click="filterBy('Positive')">Positive</a>
+								<a class="dropdown-item" data-ng-click="filterBy('Negative')">Negative</a>
+								<a class="dropdown-item" data-ng-click="filterBy('Neutral')">Neutral</a>
+								<a class="dropdown-item" data-ng-click="filterBy('Very Positive')">Very Positive</a>
+								<a class="dropdown-item" data-ng-click="filterBy('Very Negative')">Very Negative</a>
+								<a class="dropdown-item" data-ng-click="filterBy('None of the place')">None of the place</a>
+					        </div>
+					    </i>
+						</th>
 						  
-						  <th class="sortable" style="width: 20%" data-ng-click="sortBy('activity_time')">Activity Time
-						  <span class="caret"data-ng-class="{'caret-down':sortDescend('activity_time'), 'caret-up':sortAscend('activity_time')}"></span>
-						  </th>
+						<th class="sortable" style="width: 20%" data-ng-click="sortBy('activity_time')">Activity Time
+						</th>
 						  
                         </tr>
                       </thead>

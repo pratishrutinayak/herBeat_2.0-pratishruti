@@ -563,6 +563,7 @@ angular.module("app", ['chart.js','ngRoute'])
     $scope.gap = 5;
     
     $scope.filteredItems = [];
+     $scope.filteredItems_1 = [];
     $scope.groupedItems = [];
     $scope.itemsPerPage = 5;
     $scope.pagedRecords = [];
@@ -600,7 +601,7 @@ angular.module("app", ['chart.js','ngRoute'])
     };
 	$scope.filterBy = function(prop) {
 		//$scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
-		$scope.filteredItems = $filter('filter')($scope.emaResp, walking);
+		$scope.filteredItems = $filter('filter')($scope.emaResp, prop);
 		$scope.groupToPages();
 		$scope.propertyName = propertyName;
     };
